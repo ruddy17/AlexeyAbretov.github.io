@@ -13291,7 +13291,9 @@ var internalFetch = function internalFetch(url, options) {
 
 var itemsById = {};
 
-internalFetch('http://95.163.251.187/api/v1/tag/hierarchy', {
+var host = '95.163.251.187'
+
+internalFetch('http://' + host + '/api/v1/tag/hierarchy', {
     method: 'GET'
 }).then(function (response) {
     var prepareData = function processItems() {
@@ -13803,13 +13805,13 @@ function prepareChartData() {
 }
 
 function getTagData(tag, period, from, to) {
-    return internalFetch('http://95.163.251.187/api/v1/data?tag=' + tag + '&period=' + period + '&from_ts=' + from + '&to_ts=' + to, {
+    return internalFetch('http://'+host+'/api/v1/data?tag=' + tag + '&period=' + period + '&from_ts=' + from + '&to_ts=' + to, {
         method: 'GET'
     });
 }
 
 function getTagAlerts(tag) {
-    return internalFetch('http://95.163.251.187/api/v1/alerts?tag=' + tag, {
+    return internalFetch('http://'+host+'/api/v1/alerts?tag=' + tag, {
         method: 'GET'
     });
 }
